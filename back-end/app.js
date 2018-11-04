@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
 const indexRouter = require('./routes/index');
@@ -7,6 +8,7 @@ const indexRouter = require('./routes/index');
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
+app.use(cors());
 app.use(morgan('dev'));
 /** body-parser 역할 시작 */
 app.use(express.json());
@@ -19,8 +21,8 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use('/api', indexRouter);
 
-/** 
- * 404처리 미들웨어 
+/**
+ * 404처리 미들웨어
  * 라우터에서 요청이 처리 되지 않으면 이쪽으로 넘어옴.
  * */
 app.use((req, res, next) => {
@@ -29,8 +31,8 @@ app.use((req, res, next) => {
   next(err);
 });
 
-/** 
- * 에러 핸들러 
+/**
+ * 에러 핸들러
  * 위에서 next()로 인해 아래 핸들러로 들어옴
  * */
 app.use((err, req, res) => {
