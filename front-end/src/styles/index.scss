@@ -19,11 +19,31 @@ body {
     font-size: 25px;
   }
 
+  input:focus {
+    outline: none;
+  }
+
   .search-button {
     width: 100px;
     height: 72px; 
     background-color: rgb(102, 160, 145);
     color: white;
     cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    display: flex;
+
+    dl {
+      margin-left: 20px;
+
+      dt {
+        font-size: 25px;
+      }
+    }
   }
 }

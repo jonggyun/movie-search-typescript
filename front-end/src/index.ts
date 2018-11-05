@@ -4,7 +4,7 @@ const search = require('./search');
 
 const createHeader = (): HTMLElement => {
   const h1: HTMLHeadingElement = document.createElement('h1');
-  h1.textContent = 'Movie searching service';
+  h1.textContent = 'Movieeeeeegle';
   return h1;
 }
 
@@ -25,7 +25,7 @@ const createInputSection = (): HTMLElement => {
   ionIcon.setAttribute('name','search');
   ionIcon.addEventListener('click', () => {
     const keyword: string = (<HTMLInputElement>document.getElementById('keyword')).value;
-    console.log(keyword);
+
     search(keyword);
   });
 
@@ -34,5 +34,13 @@ const createInputSection = (): HTMLElement => {
   return section;
 }
 
+const createMovieListDiv = (): HTMLElement => {
+  const div: HTMLElement = document.createElement('div');
+  div.className = 'movie-list';
+  div.id = 'movie-list';
+  return div;
+}
+
 document.body.appendChild(createHeader());
 document.body.appendChild(createInputSection());
+document.body.appendChild(createMovieListDiv());
